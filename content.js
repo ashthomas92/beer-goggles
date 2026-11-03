@@ -1,6 +1,7 @@
 const api = globalThis.browser ?? chrome;
 const root = document.documentElement;
-const TAGS = new Set(["img", "picture", "svg", "image", "video", "canvas", "embed", "object"]);
+const TAGS = new Set(["img", "picture", "svg", "image", "video", "canvas", "embed", "object", "content-video-player", "video-card"]);
+const CLASSES = ".video-wrapper, .video";
 const URL_PROPS = ["backgroundImage", "borderImageSource", "maskImage", "content"];
 const OPTS = { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "src"] };
 const blurred = new Map(); // element -> its original inline filter, restored when switched off
@@ -10,6 +11,7 @@ const hasUrl = style => URL_PROPS.some(p => style[p]?.includes("url("));
 
 const isImagery = el =>
   TAGS.has(el.localName) ||
+  el.matches(CLASSES) ||
   (el.localName === "input" && el.type === "image") ||
   (el.localName === "iframe" && /^(data|blob):/.test(el.src)) || // frames extensions can't run in
   [null, "::before", "::after"].some(p => hasUrl(getComputedStyle(el, p))); // pseudo images blur their host
