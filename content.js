@@ -31,6 +31,7 @@ const check = el => {
   if (el.nodeType !== 1) return;
   // Check the style, not the map: frameworks rewrite style attributes and wipe our blur.
   if (el.style?.getPropertyValue("filter") !== "blur(20px)" && isImagery(el)) blur(el);
+  if (!(el instanceof HTMLElement)) return; // only HTML can host shadow roots; Chrome's API throws on SVG and halts the scan
   const shadow = api.dom?.openOrClosedShadowRoot(el) ?? el.openOrClosedShadowRoot; // Chrome / Firefox; both see closed roots
   if (shadow) { observer.observe(shadow, OPTS); scan(shadow); }
 };
