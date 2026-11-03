@@ -1,0 +1,4 @@
+/* Instant first pass so nothing flashes before content.js runs; content.js handles the rest. */
+html[data-beergoggles] :is(img, picture, svg, video, canvas, embed, object, input[type="image"]) {
+  filter: blur(20px) !important;
+}

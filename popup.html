@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; padding: 14px 16px; font: 600 14px system-ui; white-space: nowrap; }
+  label { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  input {
+    appearance: none; margin: 0; flex: none; position: relative; cursor: pointer;
+    width: 44px; height: 24px; border-radius: 12px; background: #b8b0a6;
+    transition: background .2s;
+  }
+  input::after {
+    content: ""; position: absolute; top: 3px; left: 3px;
+    width: 18px; height: 18px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 3px #0004; transition: transform .2s;
+  }
+  input:checked { background: #f2a516; }
+  input:checked::after { transform: translateX(20px); }
+  input:focus-visible { outline: 2px solid #3a2510; outline-offset: 2px; }
+</style>
+<body>
+  <label><input type="checkbox" role="switch" id="on"> <span id="text">Put on your beer goggles</span></label>
+  <script src="popup.js"></script>
+</body>
