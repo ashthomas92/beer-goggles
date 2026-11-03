@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## How it fits together
 
-- **State** is a single `on` boolean in `storage.local`. `popup.js` writes it; `content.js` reads it on load and reacts via `storage.onChanged`. There is no background script.
+- **State** is a single `on` boolean in `storage.local`. `popup.js` writes it; `content.js` reads it on load and reacts via `storage.onChanged`. `background.js` only swaps the toolbar icon (`icons/icon-*.png` / `icons/icon-off-*.png`) to match; the manifest lists it as both `service_worker` (Chrome) and `scripts` (Firefox).
 - **Cross-browser**: both scripts use `globalThis.browser ?? chrome`. Shadow-root access uses `chrome.dom.openOrClosedShadowRoot` (Chrome) or `el.openOrClosedShadowRoot` (Firefox).
 - **Two-layer blur**:
   1. `blur.css` is injected at `document_start` and blurs common media tags when `<html data-beergoggles>` is set, so nothing flashes before JS runs.
