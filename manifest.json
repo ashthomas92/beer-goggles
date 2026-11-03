@@ -20,5 +20,5 @@
     "all_frames": true,
     "match_about_blank": true
   }],
-  "browser_specific_settings": { "gecko": { "id": "beergoggles@swgfl.org.uk" } }
+  "browser_specific_settings": { "gecko": { "id": "beergoggles@swgfl.org.uk", "data_collection_permissions": { "required": ["none"] } } }
 }
