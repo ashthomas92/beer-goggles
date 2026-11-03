@@ -29,7 +29,8 @@ const unblurAll = () => {
 
 const check = el => {
   if (el.nodeType !== 1) return;
-  if (!blurred.has(el) && isImagery(el)) blur(el);
+  // Check the style, not the map: frameworks rewrite style attributes and wipe our blur.
+  if (el.style?.getPropertyValue("filter") !== "blur(20px)" && isImagery(el)) blur(el);
   const shadow = api.dom?.openOrClosedShadowRoot(el) ?? el.openOrClosedShadowRoot; // Chrome / Firefox; both see closed roots
   if (shadow) { observer.observe(shadow, OPTS); scan(shadow); }
 };
