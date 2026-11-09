@@ -17,7 +17,11 @@ Switching it off puts every page back exactly as it was. The toolbar icon shows 
 
 ## Install from an extension store
 
-Coming soon! Beer Goggles is on its way to the Chrome, Firefox and Edge Web Stores. Links will appear here once it's published.
+**Chrome/Edge**
+[Install here](https://chromewebstore.google.com/detail/beer-goggles/ncahhajckmijodachfeikdogjnidiinl?hl=en-GB&pli=1)
+
+**Firefox**
+[Install here](https://addons.mozilla.org/en-GB/firefox/addon/beer-goggles/)
 
 ## Install from source
 
