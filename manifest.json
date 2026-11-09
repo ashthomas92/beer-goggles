@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Beer Goggles",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Blur all images with one switch.",
   "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
